@@ -45,6 +45,7 @@
 |  channel_name |  varchar(100)| |UNIQUE|||
 
 - shows
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 | show_id| int | |PRIMARY||YES|
@@ -53,6 +54,7 @@
 | show_detail |varchar(200)|NULL||||
 
 - genres
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 | genre_id| int | |PRIMARY||YES|
@@ -66,6 +68,7 @@
 | season_number |int| |UNIQUE(uk_show_season)|||
 
 - episodes
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 | episode_id | int | |PRIMARY||YES|
@@ -79,6 +82,7 @@
 | episode_detail |  varchar(200)|NULL||||
 
 - schedules
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |schedule_id| int | |PRIMARY||YES|
@@ -86,6 +90,7 @@
 | end_time| DATETIME||UNIQUE(uk_schedule_time)|||
 
 - program_schedules
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |program_schedule_id| int | |PRIMARY||YES|
@@ -93,6 +98,7 @@
 |schedule_id| int| |FOREIGN, UNIQUE(uk_episode_schedule)|||
 
 - program_channels
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |program_channel_id| int | |PRIMARY||YES|
