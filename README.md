@@ -36,7 +36,7 @@
 ```bash
     mysql -u ユーザー名 -p internet_tv_db < insert_data.sql
 ```
-
+## テーブル設計
 - channels
   
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
@@ -61,6 +61,7 @@
 | genre_name | varchar(100)| |UNIQUE|||
 
 - seasons
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |season_id| int | |PRIMARY||YES|
