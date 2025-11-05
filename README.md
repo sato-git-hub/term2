@@ -70,13 +70,13 @@
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 | episode_id | int | |PRIMARY||YES|
-| show_id | int| |FOREIGN,UNIQUE(uk_show_episode)|||
-| season_id |int|NULL|FOREIGN|||
+| show_id | int| |FOREIGN,UNIQUE(uk_show_season_episode)|||
+| season_id |int|NULL|FOREIGN,UNIQUE(uk_show_season_episode)|||
 | schedule_id |int| |FOREIGN|||
-| episode_number |  int| |UNIQUE(uk_show_episode)|||
+| episode_number |  int| |UNIQUE(uk_show_season_episode)|||
 | episode_name |  varchar(100)| ||||
 | viewing_time | time| ||||
-| view |  bigint(20)| ||0||
+| view_count |  bigint(20)| ||0||
 | episode_detail |  varchar(200)|NULL||||
 
 - schedules
