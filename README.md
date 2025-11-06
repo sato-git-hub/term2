@@ -1,4 +1,4 @@
-##　手順
+## 手順
 1.リポジトリをクローン
  - GitHubのこのリポジトリーをクローンする
 ```bash
@@ -6,7 +6,7 @@
 ```
  - クローンしたディレクトリに移動
  ```bash 
-  cd term2
+     cd term2
  ```
 
 2.MySQLの起動
@@ -25,7 +25,7 @@
   ```
  - MySQLを終了
 ```sql
-    QUIT;
+   QUIT;
   ```
 
 4.テーブルの構築
@@ -35,17 +35,17 @@
 5.テーブルにサンプルデータを入れる
 ```bash
     mysql -u ユーザー名 -p internet_tv_db < insert_data.sql
-    ```
-
+```
 ## テーブル設計
-
 - channels
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 | channel_id| int | |PRIMARY||YES|
 |  channel_name |  varchar(100)| |UNIQUE|||
 
 - shows
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 | show_id| int | |PRIMARY||YES|
@@ -54,12 +54,14 @@
 | show_detail |varchar(200)|NULL||||
 
 - genres
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 | genre_id| int | |PRIMARY||YES|
 | genre_name | varchar(100)| |UNIQUE|||
 
 - seasons
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |season_id| int | |PRIMARY||YES|
@@ -67,19 +69,21 @@
 | season_number |int| |UNIQUE(uk_show_season)|||
 
 - episodes
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 | episode_id | int | |PRIMARY||YES|
-| show_id | int| |FOREIGN,UNIQUE(uk_show_episode)|||
-| season_id |int|NULL|FOREIGN|||
+| show_id | int| |FOREIGN,UNIQUE(uk_show_season_episode)|||
+| season_id |int|NULL|FOREIGN,UNIQUE(uk_show_season_episode)|||
 | schedule_id |int| |FOREIGN|||
-| episode_number |  int| |UNIQUE(uk_show_episode)|||
+| episode_number |  int| |UNIQUE(uk_show_season_episode)|||
 | episode_name |  varchar(100)| ||||
 | viewing_time | time| ||||
-| view |  bigint(20)| ||0||
+| view_count |  bigint(20)| ||0||
 | episode_detail |  varchar(200)|NULL||||
 
 - schedules
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |schedule_id| int | |PRIMARY||YES|
@@ -87,6 +91,7 @@
 | end_time| DATETIME||UNIQUE(uk_schedule_time)|||
 
 - program_schedules
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |program_schedule_id| int | |PRIMARY||YES|
@@ -94,13 +99,9 @@
 |schedule_id| int| |FOREIGN, UNIQUE(uk_episode_schedule)|||
 
 - program_channels
+  
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |program_channel_id| int | |PRIMARY||YES|
 |episode_id| int| |FOREIGN, UNIQUE(uk_episode_channel)|||
 |channel_id| int| |FOREIGN, UNIQUE(uk_episode_channel)|||
-
-
-
-
-
